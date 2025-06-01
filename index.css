@@ -1,0 +1,239 @@
+*{
+  padding:0;
+  margin:0;
+  box-sizing: border-box;
+  --base-color:hsl(0, 0%, 99%);
+  --element-variant:hsl(0, 100%, 100%);
+  --text-color:hsl(200, 15%, 8%);
+}
+/*darkmode css*/
+.darkmode, .darkmode nav, .darkmode div, .darkmode select, 
+.darkmode #theme-dark,.darkmode #theme-light, .darkmode input{
+  --base-color:hsl(207, 26%, 17%);
+  --element-variant:hsl(209, 23%, 22%);
+  --text-color:hsl(0, 100%, 100%);
+
+}
+
+body{
+    max-width:100%;
+    height:100vh;
+    background-color: var(--base-color);
+    color:var(--text-color);
+    font-family: 'Courier New', Courier, monospace;
+}
+nav{
+    max-width:100%;
+    height:60px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 3);
+    background-color: var(--element-variant);
+    
+}
+nav ul{
+    width:100%;
+    list-style:none;
+    display: flex;
+    justify-content: flex-end;
+    align-items:center;
+}
+nav li{
+    height:50px;
+    margin-right: auto;
+    padding:20px;
+    font-size: 20px;
+    font-weight: 600;
+    
+}
+#theme-dark, #theme-light{
+  background-color: transparent;
+  color: var(--text-color); 
+  border:none;
+  outline: none;
+  cursor:pointer;
+
+}
+#theme-light{
+  display:none;
+}
+.darkmode #theme-light{
+  display: block;
+}
+.darkmode #theme-dark{
+  display:none;
+}
+
+.input-wrapper, .wrapper{
+  width: 100%;
+  max-width: 480px;
+  background-color: var(--element-variant);
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+}
+.input-wrapper i, .wrapper i{
+  /* color: var(--text-color); */
+  margin-right: 0.5rem;
+  font-size: 1rem;
+}
+li input{
+    padding:3px;
+    font-size: 15px;
+    font-weight:300;
+    border-radius: 10px;
+    text-align: center;
+    color:var(--text-color);
+    border: none;
+    outline: none;
+    flex: 1;
+    background: transparent;
+}
+
+.regionContainer{
+    padding:20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+.regionContainer select{
+  background-color:var(--element-variant);
+    padding:5px;
+    width:150px;
+    height:auto;
+    border-radius: 10px;
+    color:var(--text-color);
+    font-size: 15px;
+    font-weight:300;
+}
+#countriesContainer{
+    max-width: 100%;
+    height:auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+#countriesContainer a{
+    text-decoration: none;
+    /* color:var(--text-color); */
+}
+.country-card {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  background-color: var(--element-variant);
+  font-family: Arial, sans-serif;
+  margin: 1rem auto;
+  /* color:var(--text-color); */
+  cursor:pointer;
+}
+
+.country-flag {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.country-info {
+  padding: 16px;
+}
+
+.country-info h2 {
+  margin: 0 0 12px;
+  font-size: 1.2rem;
+}
+
+.country-info p {
+  margin: 4px 0;
+  font-size: 0.95rem;
+}
+/*DetailsPage css*/
+
+#detail-container {
+  padding: 2rem;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.back-btn {
+  background-color: var(--element-variant);
+  border: 1px solid #ccc;
+  padding: 8px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.country-detail-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 4rem;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.flag-section {
+  flex: 1 1 40%;
+}
+
+.country-flag {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.info-section {
+  flex: 1 1 50%;
+}
+
+.info-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.info-columns {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.left-info, .right-info {
+  flex: 1 1 200px;
+}
+
+p {
+  margin: 0.4rem 0;
+}
+
+.border-countries {
+  margin-top: 2rem;
+}
+
+.border-btn {
+  display: inline-block;
+  background-color:var(--element-variant);
+  border: 1px solid #ccc;
+  padding: 6px 14px;
+  border-radius: 4px;
+  margin: 0.3rem 0.4rem;
+  font-size: 0.9rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+@media (max-width: 768px) {
+  .country-detail-wrapper {
+    flex-direction: column;
+  }
+
+  .info-columns {
+    flex-direction: column;
+  }
+
+  .flag-section, .info-section {
+    flex: 1 1 100%;
+  }
+}
+

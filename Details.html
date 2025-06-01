@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country Details</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <div id="detail-container">
+        
+
+        
+    </div>
+<script>
+    
+    // Dark/Light mode for details page
+    const setTheme = () => {
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark") {
+        document.body.classList.add("darkmode");
+        }
+    };
+    setTheme();
+
+    //getting the unique value and fetching data from api with it
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id');
+    console.log(id);
+    
+    const url=`https://restcountries.com/v3.1/alpha/${id}`;
+    fetch(url).then(res => res.json()).then(data =>{
+        console.log(data);
+        const country = data[0];
+        let html=`
+            <a href="./index.html"><button class="back-btn">← Back</button></a>
+            <div class="country-detail-wrapper">
+            <div class="flag-section">
+                <img src=${country.flags.png} alt="Belgium Flag" class="country-flag">
+            </div>
+
+            <div class="info-section">
+                <h2>${country.name.official}</h2>
+
+                <div class="info-columns">
+                    <div class="left-info">
+                        <p><strong>Native Name:</strong> ${Object.values(country.name.nativeName)[0].common}</p>
+                        <p><strong>Population:</strong> ${country.population}</p>
+                        <p><strong>Region:</strong> ${country.region}</p>
+                        <p><strong>Sub Region:</strong> ${country.subregion}</p>
+                        <p><strong>Capital:</strong> ${country.capital}</p>
+                    </div>
+
+                    <div class="right-info">
+                        <p><strong>Top Level Domain:</strong> ${country.tld}</p>
+                        <p><strong>Currencies:</strong> ${Object.values(country.currencies)[0].name} (${Object.values(country.currencies)[0].symbol})</p>
+                        <p><strong>Languages:</strong> ${Object.values(country.languages)[0]}, English</p>
+                    </div>
+                </div>
+
+                    
+                        
+                    
+            </div>
+        </div>
+        `;
+        const Container = document.getElementById("detail-container");
+        Container.innerHTML = html;
+    })
+
+
+</script>
+    
+</body>
+</html>
