@@ -62,7 +62,7 @@ nav li{
   display:none;
 }
 
-.input-wrapper, .wrapper{
+.input-wrapper {
   width: 100%;
   max-width: 480px;
   background-color: var(--element-variant);
@@ -72,7 +72,7 @@ nav li{
   display: flex;
   align-items: center;
 }
-.input-wrapper i, .wrapper i{
+.input-wrapper i{
   /* color: var(--text-color); */
   margin-right: 0.5rem;
   font-size: 1rem;
@@ -235,5 +235,55 @@ p {
   .flag-section, .info-section {
     flex: 1 1 100%;
   }
+}
+@media (max-width:535px) {
+  nav li{
+    padding:15px;
+    font-size: 13px;
+  }
+  .input-wrapper{
+  width: 70%;
+  max-width: 70%;
+  
+  padding: 1;
+  
+}
+.input-wrapper i{
+  
+  margin-right: 0;
+  font-size: 10px;
+}
+li input{
+    padding:2px;
+    font-size: 10px;
+    
+   
+    flex: 1;
+    
+}
+}
+@media (max-width:375px) {
+  nav{
+    height:auto;
+  }
+  nav li{
+    padding:10px;
+    font-size: 13px;
+  }
+  .input-wrapper{
+  width: 60%;
+  max-width: 60%;
+  
+  padding: 1;
+  
+}
+}
+@media (max-width:320px) {
+  
+  nav li{
+    padding:5px;
+    font-size: 13px;
+  }
+
 }
 
